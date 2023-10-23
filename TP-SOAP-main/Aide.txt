@@ -1,0 +1,58 @@
+DEVRA ETRE RENDU ENTRE LE 30 OCTOBRE ET LE 6 NOVEMBRE
+
+Tous les prochains TP sons sur le même énoncé, 
+!!! Attention à la modélisation il faut faire une structure propre !!bien réfléchir
+
+Postman utilisé pour plusieurs technologies, SOAPUI utilisé seulement pour SOAP
+
+------------------------------------------------------------
+
+Exo2/
+Interface permettant utilisateur saisir :	
+		-ville séjour
+		-date arrivé
+		-date départ
+		-intervalle prix souhaité
+		-catégorie hotel -> nb etoiles et nb personne a héberger
+
+L'application retourne liste hotel qui répondent au critères 
+et pour chaque hotel est affiché :
+	- nom hotel 
+	-adresse hotel ( pays, ville , rue , numero, lieu dit (surnom du lieu par exemple) , position GPS)
+	-prix a payer 
+	-nb etoiles
+	-nb de lit proposé 
+
+L'utilisateur choisi hotel et l'application dmd de saisir : nom, prenom prsn princi, informations cartes. 
+puis l'application se servira de ca pour faire la réservation 
+
+	
+
+Q2/
+
+version de base:  plusieurs hotels  CLI va invoquer les méthodes des hotels 
+
+version ditribués : pareil mais le CLI doit invoquer des services web 
+
+version distrib avancé :  pareil maisl'utilisateur se connecte a une agence et c'est l'agence qui fait le lien entre client et hotel
+			utilisation de web service entre hotel et agencce, deux choix 
+			CLI invoquer des méthodes sur les agences ou utiliser des webs services
+
+on peut faire d'abord 1 CLI 1 AGENCES ET PLUSIERUS HOTEL
+PUIS APRES AVEC PLUSIEURS AGENCES 
+
+ 
+Q3/ Pour chaque hotel on peut lui associer une image 
+Q4/ avec base données et interface graphique 
+
+q1/ versiion 1
+Q2/ (v2)distribué la version de q1:
+	dans hotel on va faire publish des services web 
+	du coté client on va utiliser wsimport qui va invoquer proxy 
+
+(v3)sans distribution mais avec agence :
+	on a une agence qui hère par exemple plusieurs hotel, l'agence bénéficie d'offres
+(v4) distribution, le client a acces a plusieur agence
+
+
+
