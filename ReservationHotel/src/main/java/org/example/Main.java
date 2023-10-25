@@ -1,6 +1,8 @@
 package org.example;
 
+import Service.ServiceReservation;
 import ServiceImpl.HotelReservationServiceImpl;
+import ServiceImpl.ReservationImpl;
 import ServiceImpl.ServiceDisponibiliteHotelsImpl;
 
 import javax.xml.ws.Endpoint;
@@ -17,9 +19,11 @@ public class Main {
 
         // CarteCredit
         CarteCredit carte1 = new CarteCredit(123456789, new Date(), 123);
+        CarteCredit carte2 = new CarteCredit(987654321, new Date(), 321);
+
 
         // Hotel
-        Hotel hotel1 = new Hotel("Nom de l'Hôtel", "Catégorie de l'Hôtel", adresse1, 4); // 4 étoiles
+        Hotel hotel1 = new Hotel("H1", "Catégorie de l'Hôtel", adresse1, 4); // 4 étoiles
         Hotel hotel2 = new Hotel("Autre Hôtel", "Catégorie de l'Hôtel", adresse1, 3); // 3 étoiles
 
         // Chambre
@@ -29,14 +33,16 @@ public class Main {
         Chambre chambre4 = new Chambre(2, hotel2, 3, 3, 90);
 
         // Client
-        Client client1 = new Client("Prénom", "Nom", "email@example.com", 123456789, carte1);
-        Client client2 = new Client("Autre Prénom", "Autre Nom", "autreemail@example.com", 987654321, carte1);
+        Client client1 = new Client("Prénom", "Nom", "email@example.com", 123456789, carte2);
+        Client client2 = new Client("Autre Prénom", "Autre Nom", "autreemail@example.com", 987654321, carte2);
+        Client clientJoe = new Client("John", "Doe", "johndoe@example.com", 123456789, carte1);
 
         // Reservation
         Date dateDebut = new Date();
         Date dateFin = new Date();
         Reservation reservation1 = new Reservation("Nom", "Prénom", client1, 150, dateDebut, dateFin);
         Reservation reservation2 = new Reservation("Autre Nom", "Autre Prénom", client2, 180, dateDebut, dateFin);
+        Reservation reservationJoe = new Reservation("Joe", "OEJ", clientJoe, 150, dateDebut, dateFin);
 
         List<Offre> offres = new ArrayList<>();
 
@@ -54,6 +60,8 @@ public class Main {
         reservation1.ajouterChambre(chambre2);
         reservation2.ajouterChambre(chambre3);
         reservation2.ajouterChambre(chambre4);
+        reservationJoe.ajouterChambre(chambre1);
+        reservationJoe.ajouterChambre(chambre2);
 
         // Affichez ou utilisez les instances créées
         System.out.println("Informations sur la réservation 1 :");
@@ -70,6 +78,8 @@ public class Main {
 
         Endpoint.publish("http://localhost:8080/hotelreservationservice", new HotelReservationServiceImpl());
         Endpoint.publish("http://localhost:8080/service-disponibilite", new ServiceDisponibiliteHotelsImpl(offres));
+        Endpoint.publish("http://localhost:8080/service-reservation", new ReservationImpl());
+
 
         System.out.println("Serveur Ready to use \n");
 
