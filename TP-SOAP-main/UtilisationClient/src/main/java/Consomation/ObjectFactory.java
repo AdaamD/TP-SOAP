@@ -24,8 +24,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetHotelInfoByName_QNAME = new QName("http://Service/", "getHotelInfoByName");
-    private final static QName _GetHotelInfoByNameResponse_QNAME = new QName("http://Service/", "getHotelInfoByNameResponse");
     private final static QName _ConsulterDisponibilites_QNAME = new QName("http://Service/", "consulterDisponibilites");
     private final static QName _ConsulterDisponibilitesResponse_QNAME = new QName("http://Service/", "consulterDisponibilitesResponse");
 
@@ -34,14 +32,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link GetHotelInfoByNameResponse }
-     * 
-     */
-    public GetHotelInfoByNameResponse createGetHotelInfoByNameResponse() {
-        return new GetHotelInfoByNameResponse();
     }
 
     /**
@@ -61,45 +51,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHotelInfoByName }
-     * 
-     */
-    public GetHotelInfoByName createGetHotelInfoByName() {
-        return new GetHotelInfoByName();
-    }
-
-    /**
-     * Create an instance of {@link Hotel }
-     * 
-     */
-    public Hotel createHotel() {
-        return new Hotel();
-    }
-
-    /**
      * Create an instance of {@link Offre }
      * 
      */
     public Offre createOffre() {
         return new Offre();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelInfoByName }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://Service/", name = "getHotelInfoByName")
-    public JAXBElement<GetHotelInfoByName> createGetHotelInfoByName(GetHotelInfoByName value) {
-        return new JAXBElement<GetHotelInfoByName>(_GetHotelInfoByName_QNAME, GetHotelInfoByName.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelInfoByNameResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://Service/", name = "getHotelInfoByNameResponse")
-    public JAXBElement<GetHotelInfoByNameResponse> createGetHotelInfoByNameResponse(GetHotelInfoByNameResponse value) {
-        return new JAXBElement<GetHotelInfoByNameResponse>(_GetHotelInfoByNameResponse_QNAME, GetHotelInfoByNameResponse.class, null, value);
     }
 
     /**

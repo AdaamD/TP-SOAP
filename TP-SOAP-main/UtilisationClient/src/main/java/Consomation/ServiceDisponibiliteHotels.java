@@ -27,21 +27,6 @@ public interface ServiceDisponibiliteHotels {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns Consomation.Hotel
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getHotelInfoByName", targetNamespace = "http://Service/", className = "Consomation.GetHotelInfoByName")
-    @ResponseWrapper(localName = "getHotelInfoByNameResponse", targetNamespace = "http://Service/", className = "Consomation.GetHotelInfoByNameResponse")
-    @Action(input = "http://Service/ServiceDisponibiliteHotels/getHotelInfoByNameRequest", output = "http://Service/ServiceDisponibiliteHotels/getHotelInfoByNameResponse")
-    public Hotel getHotelInfoByName(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
      * @param arg3
      * @param arg2
      * @param arg1

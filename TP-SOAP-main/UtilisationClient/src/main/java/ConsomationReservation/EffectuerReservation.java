@@ -1,5 +1,5 @@
 
-package Consomation;
+package ConsomationReservation;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,19 +7,21 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour consulterDisponibilites complex type.
+ * <p>Classe Java pour effectuerReservation complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="consulterDisponibilites">
+ * &lt;complexType name="effectuerReservation">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,18 +31,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "consulterDisponibilites", propOrder = {
+@XmlType(name = "effectuerReservation", propOrder = {
     "arg0",
     "arg1",
     "arg2",
-    "arg3"
+    "arg3",
+    "arg4",
+    "arg5"
 })
-public class ConsulterDisponibilites {
+public class EffectuerReservation {
 
     protected String arg0;
-    protected String arg1;
+    protected int arg1;
     protected String arg2;
-    protected int arg3;
+    protected String arg3;
+    protected String arg4;
+    protected int arg5;
 
     /**
      * Obtient la valeur de la propriété arg0.
@@ -69,24 +75,16 @@ public class ConsulterDisponibilites {
     /**
      * Obtient la valeur de la propriété arg1.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getArg1() {
+    public int getArg1() {
         return arg1;
     }
 
     /**
      * Définit la valeur de la propriété arg1.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setArg1(String value) {
+    public void setArg1(int value) {
         this.arg1 = value;
     }
 
@@ -117,17 +115,65 @@ public class ConsulterDisponibilites {
     /**
      * Obtient la valeur de la propriété arg3.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getArg3() {
+    public String getArg3() {
         return arg3;
     }
 
     /**
      * Définit la valeur de la propriété arg3.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setArg3(int value) {
+    public void setArg3(String value) {
         this.arg3 = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété arg4.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArg4() {
+        return arg4;
+    }
+
+    /**
+     * Définit la valeur de la propriété arg4.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArg4(String value) {
+        this.arg4 = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété arg5.
+     * 
+     */
+    public int getArg5() {
+        return arg5;
+    }
+
+    /**
+     * Définit la valeur de la propriété arg5.
+     * 
+     */
+    public void setArg5(int value) {
+        this.arg5 = value;
     }
 
 }

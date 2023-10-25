@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour offre complex type.
  * 
- * <p>Le fragment de schÃ©ma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="offre">
@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="dateDisponibilite" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="nomHotel" type="{http://Service/}hotel" minOccurs="0"/>
+ *         &lt;element name="idOffre" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="typeChambre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -31,19 +31,19 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "offre", propOrder = {
     "dateDisponibilite",
-    "nomHotel",
+    "idOffre",
     "prix",
     "typeChambre"
 })
 public class Offre {
 
     protected String dateDisponibilite;
-    protected Hotel nomHotel;
+    protected int idOffre;
     protected double prix;
     protected String typeChambre;
 
     /**
-     * Obtient la valeur de la propriÃ©tÃ© dateDisponibilite.
+     * Obtient la valeur de la propriété dateDisponibilite.
      * 
      * @return
      *     possible object is
@@ -55,7 +55,7 @@ public class Offre {
     }
 
     /**
-     * DÃ©finit la valeur de la propriÃ©tÃ© dateDisponibilite.
+     * Définit la valeur de la propriété dateDisponibilite.
      * 
      * @param value
      *     allowed object is
@@ -67,31 +67,23 @@ public class Offre {
     }
 
     /**
-     * Obtient la valeur de la propriÃ©tÃ© nomHotel.
+     * Obtient la valeur de la propriété idOffre.
      * 
-     * @return
-     *     possible object is
-     *     {@link Hotel }
-     *     
      */
-    public Hotel getNomHotel() {
-        return nomHotel;
+    public int getIdOffre() {
+        return idOffre;
     }
 
     /**
-     * DÃ©finit la valeur de la propriÃ©tÃ© nomHotel.
+     * Définit la valeur de la propriété idOffre.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Hotel }
-     *     
      */
-    public void setNomHotel(Hotel value) {
-        this.nomHotel = value;
+    public void setIdOffre(int value) {
+        this.idOffre = value;
     }
 
     /**
-     * Obtient la valeur de la propriÃ©tÃ© prix.
+     * Obtient la valeur de la propriété prix.
      * 
      */
     public double getPrix() {
@@ -99,7 +91,7 @@ public class Offre {
     }
 
     /**
-     * DÃ©finit la valeur de la propriÃ©tÃ© prix.
+     * Définit la valeur de la propriété prix.
      * 
      */
     public void setPrix(double value) {
@@ -107,7 +99,7 @@ public class Offre {
     }
 
     /**
-     * Obtient la valeur de la propriÃ©tÃ© typeChambre.
+     * Obtient la valeur de la propriété typeChambre.
      * 
      * @return
      *     possible object is
@@ -119,7 +111,7 @@ public class Offre {
     }
 
     /**
-     * DÃ©finit la valeur de la propriÃ©tÃ© typeChambre.
+     * Définit la valeur de la propriété typeChambre.
      * 
      * @param value
      *     allowed object is
