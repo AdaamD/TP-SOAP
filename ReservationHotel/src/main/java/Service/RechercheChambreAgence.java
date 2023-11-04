@@ -2,8 +2,6 @@ package Service;
 
 
 import Model.Chambre;
-import Model.Hotel;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;

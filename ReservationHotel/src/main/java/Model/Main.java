@@ -26,7 +26,7 @@ public class Main {
 
 
     // Hotel
-        Hotel hotelIbis = new Hotel("Ibis ", " hôtel offre un niveau de luxe", adresseIbis, 4); // 4 étoiles
+        Hotel hotelIbis = new Hotel("Ibis", " hôtel offre un niveau de luxe", adresseIbis, 4); // 4 étoiles
 
     // Chambre
         Chambre chambreIbis1 = new Chambre(1, hotelIbis, 1, 2, 100); // Chambre de l'hôtel 1
@@ -38,6 +38,12 @@ public class Main {
         chambreIbis2.setDisponible(true);
         chambreIbis3.setDisponible(true);
         chambreIbis4.setDisponible(true);
+
+        chambreIbis1.setImage("img/5");
+        chambreIbis2.setImage("img/6");
+        chambreIbis3.setImage("img/7");
+        chambreIbis4.setImage("img/8");
+
     // Client
         Client clientIbis1 = new Client("NAB", "DAF", "nabil@gmail.com", 123456789, carteIbis1);
         Client clientIbis2 = new Client("AD", "AM", "adam@gmail.com", 987654321, carteIbis2);
@@ -59,32 +65,23 @@ public class Main {
         System.out.println(chambresIbis);
 
 
-    //  Offre
-        Offre offre1 = new Offre(1, "Chambre simple", "01/01/2023", "11/01/2023", 80.0);
-        Offre offre2 = new Offre(2, "Chambre double", "05/01/2023", "15/01/2023", 120.0);
-        Offre offre3 = new Offre(3, "Suite de luxe", "01/01/2023", "11/01/2023", 200.0);
 
-        List<Offre> offres = new ArrayList<>();
-
-        offres.add(offre1);
-        offres.add(offre2);
-        offres.add(offre3);
  /* -------------------------------------------------------*/
 
 //Hotel Kyriad
 
-        // Adresse
+    // Adresse
         Adresse adresseKyriad1 = new Adresse("France", "Paris", "58 Rue de champ", "Arc", 12345);
 
-        // CarteCredit
+    // CarteCredit
         CarteCredit carte1 = new CarteCredit(567891234, new Date(), 980);
         CarteCredit carte2 = new CarteCredit(987321654, new Date(), 001);
 
 
-// Hotel
-        Hotel hotelKyriad = new Hotel("Kiryad ", " hôtel de luxe avec chambredouble", adresseKyriad1, 3); // 4 étoiles
+    // Hotel
+        Hotel hotelKyriad = new Hotel("Kyriad", " hôtel de luxe avec chambredouble", adresseKyriad1, 3); // 4 étoiles
 
-// Chambre
+    // Chambre
         Chambre chambreKyriad1 = new Chambre(1, hotelKyriad, 0, 1, 50); // Chambre de l'hôtel 1
         Chambre chambreKyriad2 = new Chambre(2, hotelKyriad, 0, 2, 70);
         Chambre chambreKyriad3 = new Chambre(3, hotelKyriad, 4, 3, 120); // Chambre de l'hôtel 2
@@ -95,18 +92,17 @@ public class Main {
         chambreKyriad3.setDisponible(true);
         chambreKyriad4.setDisponible(true);
 
-// Client
+        chambreKyriad1.setImage("img/1");
+        chambreKyriad2.setImage("img/2");
+        chambreKyriad3.setImage("img/3");
+        chambreKyriad4.setImage("img/4");
+
+    // Client
         Client clientKyriad1 = new Client("DUPONT", "PIERRE", "paul@gmail.com", 123456789, carte1);
         Client clientKyriad2 = new Client("ANTOINE", "MARC", "marc@gmail.com", 987654321, carte2);
 
 
-
-//Liste de clients
-        List<Client> clientsKyriad = new ArrayList<>();
-        clientsKyriad.add(clientKyriad1);
-        clientsKyriad.add(clientKyriad2);
-
-//Liste de chambre
+    //Liste de chambre
         List<Chambre> chambresKyriad = new ArrayList<>();
         chambresKyriad.add(chambreKyriad1);
         chambresKyriad.add(chambreKyriad2);
@@ -115,7 +111,14 @@ public class Main {
 
         System.out.println(chambresKyriad);
 
-        /*-------------------------------------------------------*/
+
+
+
+/*-------------------------------------------------------*/
+List<Client> clientsKyriad = new ArrayList<>();
+        clientsKyriad.add(clientKyriad1);
+        clientsKyriad.add(clientKyriad2);
+
 List<Hotel> listeHotels= new ArrayList<>( );
     listeHotels.add(hotelIbis);
     listeHotels.add(hotelKyriad);
@@ -125,6 +128,19 @@ List<Client> listeClients= new ArrayList<>( );
         listeClients.add(clientIbis2);
         listeClients.add(clientKyriad1);
         listeClients.add(clientKyriad2);
+
+List<Chambre> listeChambres = new ArrayList<>();
+        listeChambres.add(chambreKyriad1);
+        listeChambres.add(chambreKyriad2);
+        listeChambres.add(chambreKyriad3);
+        listeChambres.add(chambreKyriad4);
+
+        listeChambres.add(chambreIbis1);
+        listeChambres.add(chambreIbis2);
+        listeChambres.add(chambreIbis3);
+        listeChambres.add(chambreIbis4);
+
+
 
 // SW IBIS
         Endpoint.publish("http://localhost:8080/service-recherche-chambre-ibis", new RechercheChambreHotelImpl(chambresIbis));
@@ -136,7 +152,7 @@ List<Client> listeClients= new ArrayList<>( );
 
 // SW AGENCE
         Endpoint.publish("http://localhost:8080/service-recherche-chambre-agence", new RechercheChambreAgenceImpl(listeHotels));
-        Endpoint.publish("http://localhost:8080/service-reservation-chambre-agence", new ReservationChambreAvecAgenceImpl(listeHotels, listeClients));
+        Endpoint.publish("http://localhost:8080/service-reservation-chambre-agence", new ReservationChambreAvecAgenceImpl(listeHotels, listeClients, listeChambres));
 
         System.out.println("Serveur ready to use ");
 

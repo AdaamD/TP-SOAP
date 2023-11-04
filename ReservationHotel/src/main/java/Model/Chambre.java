@@ -12,6 +12,8 @@ public class Chambre {
     private int prix ;
     private boolean disponible ;
 
+    private String image;
+
 
     public Chambre() {}
 
@@ -52,5 +54,13 @@ public class Chambre {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

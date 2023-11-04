@@ -2,21 +2,19 @@ package ServiceImpl;
 
 import Service.RechercheChambreHotel;
 import Model.Chambre;
-
 import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.List;
 
 @WebService(endpointInterface = "Service.RechercheChambreHotel")
 public class RechercheChambreHotelImpl implements RechercheChambreHotel {
-    private List<Chambre> chambres; // La liste des chambres disponibles
+    private List<Chambre> chambres;
 
     public RechercheChambreHotelImpl(List<Chambre> chambres) {
+
         this.chambres = chambres;
     }
-    public RechercheChambreHotelImpl() {
-
-    }
+    public RechercheChambreHotelImpl() {}
 
 
     @Override
@@ -24,7 +22,7 @@ public class RechercheChambreHotelImpl implements RechercheChambreHotel {
         List<Chambre> chambresDisponibles = new ArrayList<>();
 
         for (Chambre chambre : chambres) {
-            // Vérifier si la chambre correspond aux critères de recherche
+            // correspondance aux critères de recherche
             if (chambre.getPrix() >= prixMin && chambre.getPrix() <= prixMax &&
                     chambre.getNbLit() >= nbLit) {
                 chambresDisponibles.add(chambre);
