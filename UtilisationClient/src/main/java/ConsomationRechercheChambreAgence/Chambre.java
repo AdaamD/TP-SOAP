@@ -1,6 +1,8 @@
 
 package ConsomationRechercheChambreAgence;
 
+import Model.Hotel;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -8,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java pour chambre complex type.
- * 
+ *
  * <p>Le fragment de sch�ma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="chambre">
  *   &lt;complexContent>
@@ -22,42 +24,45 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "chambre", propOrder = {
-    "disponible"
-})
+        "disponible","numChambre","hotel", "étage","nombreLit", "prix"})
 public class Chambre {
 
     private int numChambre;
-
+    private Model.Hotel hotel ;
+    private int étage;
+    private int nombreLit ;
     private int prix ;
+    private boolean disponible ;
 
-    protected boolean disponible;
 
-    public Chambre(int numChambre, int prix){
+    public Chambre() {}
+
+    public Chambre(int numChambre, Model.Hotel hotel, int étage , int nombreLit, int prix){
 
         this.numChambre=numChambre;
+        this.hotel=hotel;
+        this.étage=étage;
+        this.nombreLit=nombreLit;
         this.prix=prix ;
     }
 
-    public Chambre(){}
-    /**
-     * Obtient la valeur de la propri�t� disponible.
-     * 
-     */
-    public boolean isDisponible() {
-        return disponible;
+
+
+    public Hotel getHotel() {
+        return hotel;
     }
 
-    /**
-     * D�finit la valeur de la propri�t� disponible.
-     * 
-     */
-    public void setDisponible(boolean value) {
-        this.disponible = value;
+    public int getEtage() {
+        return étage;
+    }
+
+    public int getNbLit() {
+        return nombreLit;
     }
 
     public int getNumChambre() {
@@ -68,4 +73,13 @@ public class Chambre {
         return prix;
     }
 
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public void rien(){}
 }
