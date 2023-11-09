@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="prixMinimum" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="prixMaximum" type="{http://www.w3.org/2001/XMLSchema}float"/>
+ *         &lt;element name="nbLit" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,62 +29,62 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "rechercherChambres", propOrder = {
-    "arg0",
-    "arg1",
-    "arg2"
+    "prixMinimum",
+    "prixMaximum",
+    "nbLit"
 })
 public class RechercherChambres {
 
-    protected float arg0;
-    protected float arg1;
-    protected int arg2;
+    protected float prixMinimum;
+    protected float prixMaximum;
+    protected int nbLit;
 
     /**
-     * Obtient la valeur de la propriété arg0.
+     * Obtient la valeur de la propriété prixMinimum.
      * 
      */
-    public float getArg0() {
-        return arg0;
+    public float getPrixMinimum() {
+        return prixMinimum;
     }
 
     /**
-     * Définit la valeur de la propriété arg0.
+     * Définit la valeur de la propriété prixMinimum.
      * 
      */
-    public void setArg0(float value) {
-        this.arg0 = value;
+    public void setPrixMinimum(float value) {
+        this.prixMinimum = value;
     }
 
     /**
-     * Obtient la valeur de la propriété arg1.
+     * Obtient la valeur de la propriété prixMaximum.
      * 
      */
-    public float getArg1() {
-        return arg1;
+    public float getPrixMaximum() {
+        return prixMaximum;
     }
 
     /**
-     * Définit la valeur de la propriété arg1.
+     * Définit la valeur de la propriété prixMaximum.
      * 
      */
-    public void setArg1(float value) {
-        this.arg1 = value;
+    public void setPrixMaximum(float value) {
+        this.prixMaximum = value;
     }
 
     /**
-     * Obtient la valeur de la propriété arg2.
+     * Obtient la valeur de la propriété nbLit.
      * 
      */
-    public int getArg2() {
-        return arg2;
+    public int getNbLit() {
+        return nbLit;
     }
 
     /**
-     * Définit la valeur de la propriété arg2.
+     * Définit la valeur de la propriété nbLit.
      * 
      */
-    public void setArg2(int value) {
-        this.arg2 = value;
+    public void setNbLit(int value) {
+        this.nbLit = value;
     }
 
 }

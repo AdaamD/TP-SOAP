@@ -26,11 +26,10 @@ public interface ReservationChambreAvecAgence {
 
     /**
      * 
-     * @param numChambre
+     * @param prixMin
+     * @param prixMax
      * @param prenomClient
-     * @param dateArrive
-     * @param nomHotel
-     * @param dateDepart
+     * @param nbLit
      * @param pourcentageReduction
      * @param nomClient
      * @return
@@ -42,18 +41,16 @@ public interface ReservationChambreAvecAgence {
     @ResponseWrapper(localName = "reserverChambreAvecReductionResponse", targetNamespace = "http://Service/", className = "ConsomationReservationChambreAgence.ReserverChambreAvecReductionResponse")
     @Action(input = "http://Service/ReservationChambreAvecAgence/reserverChambreAvecReductionRequest", output = "http://Service/ReservationChambreAvecAgence/reserverChambreAvecReductionResponse")
     public String reserverChambreAvecReduction(
-        @WebParam(name = "nomHotel", targetNamespace = "")
-        String nomHotel,
-        @WebParam(name = "numChambre", targetNamespace = "")
-        int numChambre,
         @WebParam(name = "nomClient", targetNamespace = "")
         String nomClient,
         @WebParam(name = "prenomClient", targetNamespace = "")
         String prenomClient,
-        @WebParam(name = "dateArrive", targetNamespace = "")
-        String dateArrive,
-        @WebParam(name = "dateDepart", targetNamespace = "")
-        String dateDepart,
+        @WebParam(name = "prixMin", targetNamespace = "")
+        int prixMin,
+        @WebParam(name = "prixMax", targetNamespace = "")
+        int prixMax,
+        @WebParam(name = "nbLit", targetNamespace = "")
+        int nbLit,
         @WebParam(name = "pourcentageReduction", targetNamespace = "")
         double pourcentageReduction);
 

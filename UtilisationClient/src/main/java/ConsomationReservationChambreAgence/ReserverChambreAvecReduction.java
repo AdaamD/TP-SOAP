@@ -16,12 +16,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="nomHotel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="numChambre" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="nomClient" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="prenomClient" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="dateArrive" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="dateDepart" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="prixMin" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="prixMax" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="nbLit" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="pourcentageReduction" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -33,63 +32,21 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "reserverChambreAvecReduction", propOrder = {
-    "nomHotel",
-    "numChambre",
     "nomClient",
     "prenomClient",
-    "dateArrive",
-    "dateDepart",
+    "prixMin",
+    "prixMax",
+    "nbLit",
     "pourcentageReduction"
 })
 public class ReserverChambreAvecReduction {
 
-    protected String nomHotel;
-    protected int numChambre;
     protected String nomClient;
     protected String prenomClient;
-    protected String dateArrive;
-    protected String dateDepart;
+    protected int prixMin;
+    protected int prixMax;
+    protected int nbLit;
     protected double pourcentageReduction;
-
-    /**
-     * Obtient la valeur de la propriété nomHotel.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNomHotel() {
-        return nomHotel;
-    }
-
-    /**
-     * Définit la valeur de la propriété nomHotel.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNomHotel(String value) {
-        this.nomHotel = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété numChambre.
-     * 
-     */
-    public int getNumChambre() {
-        return numChambre;
-    }
-
-    /**
-     * Définit la valeur de la propriété numChambre.
-     * 
-     */
-    public void setNumChambre(int value) {
-        this.numChambre = value;
-    }
 
     /**
      * Obtient la valeur de la propriété nomClient.
@@ -140,51 +97,51 @@ public class ReserverChambreAvecReduction {
     }
 
     /**
-     * Obtient la valeur de la propriété dateArrive.
+     * Obtient la valeur de la propriété prixMin.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getDateArrive() {
-        return dateArrive;
+    public int getPrixMin() {
+        return prixMin;
     }
 
     /**
-     * Définit la valeur de la propriété dateArrive.
+     * Définit la valeur de la propriété prixMin.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setDateArrive(String value) {
-        this.dateArrive = value;
+    public void setPrixMin(int value) {
+        this.prixMin = value;
     }
 
     /**
-     * Obtient la valeur de la propriété dateDepart.
+     * Obtient la valeur de la propriété prixMax.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getDateDepart() {
-        return dateDepart;
+    public int getPrixMax() {
+        return prixMax;
     }
 
     /**
-     * Définit la valeur de la propriété dateDepart.
+     * Définit la valeur de la propriété prixMax.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setDateDepart(String value) {
-        this.dateDepart = value;
+    public void setPrixMax(int value) {
+        this.prixMax = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété nbLit.
+     * 
+     */
+    public int getNbLit() {
+        return nbLit;
+    }
+
+    /**
+     * Définit la valeur de la propriété nbLit.
+     * 
+     */
+    public void setNbLit(int value) {
+        this.nbLit = value;
     }
 
     /**

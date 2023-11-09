@@ -81,5 +81,4 @@ public class Chambre {
         this.disponible = disponible;
     }
 
-    public void rien(){}
 }
