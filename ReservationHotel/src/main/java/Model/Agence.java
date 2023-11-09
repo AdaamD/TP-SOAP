@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Agence {
@@ -8,11 +9,11 @@ public class Agence {
     private String motDePasse;
     private List<Hotel> hotels;
 
-    public Agence(int id, String nom, String motDePasse, List<Hotel> hotels) {
+    public Agence(int id, String nom, String motDePasse) {
         this.id = id;
         this.nom = nom;
         this.motDePasse = motDePasse;
-        this.hotels = hotels;
+        this.hotels = new ArrayList<>();
     }
 
     public int getId() {
@@ -46,6 +47,10 @@ public class Agence {
     public void setHotels(List<Hotel> hotels) {
         this.hotels = hotels;
     }
+    public void ajouterHotel ( Hotel hotel){
+        hotels.add(hotel);
+    }
+
 
 
 

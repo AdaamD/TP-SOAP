@@ -34,6 +34,11 @@ public class Main {
         Chambre chambreIbis3 = new Chambre(3, hotelIbis, 3, 3, 80); // Chambre de l'hôtel 2
         Chambre chambreIbis4 = new Chambre(4, hotelIbis, 3, 3, 90);
 
+        hotelIbis.ajouterChambre(chambreIbis1);
+        hotelIbis.ajouterChambre(chambreIbis2);
+        hotelIbis.ajouterChambre(chambreIbis3);
+        hotelIbis.ajouterChambre(chambreIbis4);
+
         chambreIbis1.setDisponible(true);
         chambreIbis2.setDisponible(true);
         chambreIbis3.setDisponible(true);
@@ -56,13 +61,9 @@ public class Main {
         clientsIbis.add(clientIbis2);
 
     //Liste de chambre
-        List<Chambre> chambresIbis = new ArrayList<>();
-        chambresIbis.add(chambreIbis1);
-        chambresIbis.add(chambreIbis2);
-        chambresIbis.add(chambreIbis3);
-        chambresIbis.add(chambreIbis4);
+        List<Chambre> chambresIbis = hotelIbis.getChambres() ;
 
-        System.out.println(chambresIbis);
+        System.out.println("Chambre dans l'hotel"+ hotelIbis.getNom()+" "+chambresIbis+"\n");
 
 
 
@@ -87,6 +88,11 @@ public class Main {
         Chambre chambreKyriad3 = new Chambre(3, hotelKyriad, 4, 3, 120); // Chambre de l'hôtel 2
         Chambre chambreKyriad4 = new Chambre(4, hotelKyriad, 1, 2, 80);
 
+        hotelKyriad.ajouterChambre(chambreKyriad1);
+        hotelKyriad.ajouterChambre(chambreKyriad2);
+        hotelKyriad.ajouterChambre(chambreKyriad3);
+        hotelKyriad.ajouterChambre(chambreKyriad4);
+
         chambreKyriad1.setDisponible(true);
         chambreKyriad2.setDisponible(true);
         chambreKyriad3.setDisponible(true);
@@ -103,14 +109,22 @@ public class Main {
 
 
     //Liste de chambre
-        List<Chambre> chambresKyriad = new ArrayList<>();
-        chambresKyriad.add(chambreKyriad1);
-        chambresKyriad.add(chambreKyriad2);
-        chambresKyriad.add(chambreKyriad3);
-        chambresKyriad.add(chambreKyriad4);
+        List<Chambre> chambresKyriad = hotelKyriad.getChambres() ;
 
-        System.out.println(chambresKyriad);
+        System.out.println("Chambre dans l'hotel "+ hotelKyriad.getNom()+" "+chambresKyriad+"\n");
 
+/*-------------------------------------------------------*/
+
+//Agence
+
+        Agence AgenceTrivago = new Agence(100, "Trivago", "trivago");
+
+        AgenceTrivago.ajouterHotel(hotelIbis);
+        AgenceTrivago.ajouterHotel(hotelKyriad);
+
+        List<Hotel> listeHotels= AgenceTrivago.getHotels();
+
+        System.out.println("Hotel dans l'Agence " +AgenceTrivago.getNom()+" " +AgenceTrivago.getHotels());
 
 
 
@@ -119,9 +133,7 @@ List<Client> clientsKyriad = new ArrayList<>();
         clientsKyriad.add(clientKyriad1);
         clientsKyriad.add(clientKyriad2);
 
-List<Hotel> listeHotels= new ArrayList<>( );
-    listeHotels.add(hotelIbis);
-    listeHotels.add(hotelKyriad);
+
 
 List<Client> listeClients= new ArrayList<>( );
         listeClients.add(clientIbis1);
@@ -141,7 +153,6 @@ List<Chambre> listeChambres = new ArrayList<>();
         listeChambres.add(chambreIbis4);
 
 
-
 // SW IBIS
         Endpoint.publish("http://localhost:8080/service-recherche-chambre-ibis", new RechercheChambreHotelImpl(chambresIbis));
         Endpoint.publish("http://localhost:8080/service-reservation-chambre-ibis", new ReservationChambreImpl(chambresIbis, clientsIbis));
@@ -152,9 +163,9 @@ List<Chambre> listeChambres = new ArrayList<>();
 
 // SW AGENCE
         Endpoint.publish("http://localhost:8080/service-recherche-chambre-agence", new RechercheChambreAgenceImpl(listeHotels));
-        Endpoint.publish("http://localhost:8080/service-reservation-chambre-agence", new ReservationChambreAvecAgenceImpl(listeHotels, listeClients, listeChambres));
+        Endpoint.publish("http://localhost:8080/service-reservation-chambre-agence", new ReservationChambreAvecAgenceImpl(listeClients, listeHotels));
 
-        System.out.println("Serveur ready to use ");
+        System.out.println("\nServeur ready to use ");
 
 
 

@@ -13,6 +13,7 @@ import java.util.List;
 public class ReservationChambreImpl implements ReservationChambre {
     private List<Chambre> chambres; // Assurez-vous que cette liste est initialisée correctement dans votre classe Main.
     private List<Client> clients; // Ajoutez une liste de clients
+    private static int id=1;
 
     public ReservationChambreImpl(List<Chambre> chambres,List<Client> clients ) {
         this.chambres = chambres;
@@ -47,7 +48,7 @@ public class ReservationChambreImpl implements ReservationChambre {
             int prixAPayer = chambre.getPrix();
 
             // Création de l'instance de réservation avec le client spécifié
-            Reservation reservation = new Reservation(nom, prenom, client, prixAPayer, dateArrive, dateDepart);
+            Reservation reservation = new Reservation(id++,nom, prenom, client, prixAPayer, dateArrive, dateDepart);
 
             // Marquer la chambre comme non disponible
             chambre.setDisponible(false);

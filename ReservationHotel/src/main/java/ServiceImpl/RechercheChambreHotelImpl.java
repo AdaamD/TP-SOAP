@@ -22,6 +22,7 @@ public class RechercheChambreHotelImpl implements RechercheChambreHotel {
         List<Chambre> chambresDisponibles = new ArrayList<>();
 
         for (Chambre chambre : chambres) {
+            System.out.println("cahmbre"+chambre);
             // correspondance aux critères de recherche
             if (chambre.getPrix() >= prixMin && chambre.getPrix() <= prixMax &&
                     chambre.getNbLit() >= nbLit) {

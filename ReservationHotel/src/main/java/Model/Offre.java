@@ -2,20 +2,18 @@ package Model;
 
 public class Offre {
     private int idOffre;
-    private String typeChambre;
     private String dateDisponibilite;
     private String dateExpiration;
 
-    private double prix;
+    private int prix;
     private int nombreLits;
 
 
     public Offre() {
     }
 
-    public Offre(int idOffre, String typeChambre, String dateDisponibilite, String dateExpiration, double prix) {
+    public Offre(int idOffre, String dateDisponibilite, String dateExpiration, int prix) {
         this.idOffre = idOffre;
-        this.typeChambre = typeChambre;
         this.dateDisponibilite = dateDisponibilite;
         this.dateExpiration = dateExpiration;
         this.prix = prix;
@@ -37,14 +35,6 @@ public class Offre {
         this.idOffre = idOffre;
     }
 
-    public String getTypeChambre() {
-        return typeChambre;
-    }
-
-    public void setTypeChambre(String typeChambre) {
-        this.typeChambre = typeChambre;
-    }
-
     public String getDateDisponibilite() {
         return dateDisponibilite;
     }
@@ -53,11 +43,19 @@ public class Offre {
         this.dateDisponibilite = dateDisponibilite;
     }
 
-    public double getPrix() {
+    public int getPrix() {
         return prix;
     }
 
-    public void setPrix(double prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
+    }
+
+    public void setDateExpiration(String dateExpiration) {
+        this.dateExpiration = dateExpiration;
+    }
+
+    public void setNombreLits(int nombreLits) {
+        this.nombreLits = nombreLits;
     }
 }

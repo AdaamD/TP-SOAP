@@ -63,4 +63,17 @@ public class Chambre {
     public void setImage(String image) {
         this.image = image;
     }
+
+    @Override
+    public String toString() {
+        return "Chambre{" +
+                "numChambre=" + numChambre +
+                ", hotel=" + hotel +
+                ", étage=" + étage +
+                ", nombreLit=" + nombreLit +
+                ", prix=" + prix +
+                ", disponible=" + disponible +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }
