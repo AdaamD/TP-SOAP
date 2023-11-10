@@ -2,6 +2,8 @@ package ServiceImpl;
 
 import Service.RechercheChambreHotel;
 import Model.Chambre;
+import Model.Offre;
+
 import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,26 +13,30 @@ public class RechercheChambreHotelImpl implements RechercheChambreHotel {
     private List<Chambre> chambres;
 
     public RechercheChambreHotelImpl(List<Chambre> chambres) {
-
         this.chambres = chambres;
     }
+
     public RechercheChambreHotelImpl() {}
 
-
     @Override
-    public List<Chambre> rechercherChambres(float prixMin, float prixMax, int nbLit) {
-        List<Chambre> chambresDisponibles = new ArrayList<>();
+    public List<Offre> rechercherChambres(float prixMin, float prixMax, int nbLit) {
+        List<Offre> offres = new ArrayList<>();
 
         for (Chambre chambre : chambres) {
-            System.out.println("cahmbre"+chambre);
-            // correspondance aux critères de recherche
             if (chambre.getPrix() >= prixMin && chambre.getPrix() <= prixMax &&
-                    chambre.getNbLit() >= nbLit) {
-                chambresDisponibles.add(chambre);
+                    chambre.getNbLit() >= nbLit && chambre.isDisponible()) {
+
+                Offre offre = new Offre();
+                offre.setIdOffre(chambre.getNumChambre());
+                offre.setDateDisponibilite("Date de disponibilité par défaut");
+                offre.setDateExpiration("Date d'expiration par défaut");
+                offre.setPrix(chambre.getPrix());
+                offre.setNombreLits(chambre.getNbLit());
+
+                offres.add(offre);
             }
         }
 
-        return chambresDisponibles;
+        return offres;
     }
-
 }

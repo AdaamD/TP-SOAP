@@ -80,12 +80,12 @@ public class Main {
 
 
     // Hotel
-        Hotel hotelKyriad = new Hotel("Kyriad", " hôtel de luxe avec chambredouble", adresseKyriad1, 3); // 4 étoiles
+        Hotel hotelKyriad = new Hotel("Kyriad", " hôtel de luxe avec chambredouble", adresseKyriad1, 3);
 
     // Chambre
-        Chambre chambreKyriad1 = new Chambre(1, hotelKyriad, 0, 1, 50); // Chambre de l'hôtel 1
+        Chambre chambreKyriad1 = new Chambre(1, hotelKyriad, 0, 1, 50);
         Chambre chambreKyriad2 = new Chambre(2, hotelKyriad, 0, 2, 70);
-        Chambre chambreKyriad3 = new Chambre(3, hotelKyriad, 4, 3, 120); // Chambre de l'hôtel 2
+        Chambre chambreKyriad3 = new Chambre(3, hotelKyriad, 4, 3, 120);
         Chambre chambreKyriad4 = new Chambre(4, hotelKyriad, 1, 2, 80);
 
         hotelKyriad.ajouterChambre(chambreKyriad1);
@@ -163,7 +163,7 @@ List<Chambre> listeChambres = new ArrayList<>();
 
 // SW AGENCE
         Endpoint.publish("http://localhost:8080/service-recherche-chambre-agence", new RechercheChambreAgenceImpl(listeHotels));
-        Endpoint.publish("http://localhost:8080/service-reservation-chambre-agence", new ReservationChambreAvecAgenceImpl(listeClients, listeHotels));
+        Endpoint.publish("http://localhost:8080/service-reservation-chambre-agence", new ReservationChambreAvecAgenceImpl(listeClients, listeHotels,AgenceTrivago));
 
         System.out.println("\nServeur ready to use ");
 

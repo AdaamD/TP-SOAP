@@ -35,7 +35,7 @@ public class ReservationChambreImpl implements ReservationChambre {
 
         // Recherche du client par nom et prénom
         Client client = null;
-        for (Client c : clients) { // clients est la liste d'instances de clients dans votre classe Main
+        for (Client c : clients) {
             if (c.getNom().equals(nom) && c.getPrenom().equals(prenom)) {
                 client = c;
                 break;
@@ -44,7 +44,6 @@ public class ReservationChambreImpl implements ReservationChambre {
 
         // Vérification de la disponibilité de la chambre
         if (chambre != null && chambre.isDisponible()) {
-            // Calcul du prix à payer (utilisation de la méthode getPrix de la classe Chambre)
             int prixAPayer = chambre.getPrix();
 
             // Création de l'instance de réservation avec le client spécifié
@@ -53,7 +52,6 @@ public class ReservationChambreImpl implements ReservationChambre {
             // Marquer la chambre comme non disponible
             chambre.setDisponible(false);
 
-            // Retourner un message de confirmation avec le numéro de réservation
             return "\nRéservation confirmée "+"\n Résumé de la reservation :\n" +
                     "   Numéro de réservation : " + reservation.hashCode()+"\n"+
                     "   Prix : " + chambre.getPrix()+"\n"+

@@ -43,5 +43,18 @@ public class Hotel {
     public Integer getNbEtoiles() {
         return nbEtoiles;
     }
+
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "nom='" + nom + '\'' +
+                ", categorie='" + categorie + '\'' +
+                ", adresse=" + adresse +
+                ", nbEtoiles=" + nbEtoiles +
+                ", nombreChambres=" + chambres.size() +
+                '}';
+    }
+
 }
 
