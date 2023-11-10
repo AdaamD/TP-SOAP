@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import ConsomationRechercheChambre.Chambre;
+import ConsomationRechercheChambre.Offre;
 import ConsomationRechercheChambre.RechercheChambreHotel;
 import ConsomationRechercheChambre.RechercheChambreHotelImplService;
 import ConsomationReservationChambre.ReservationChambre;
@@ -23,13 +24,13 @@ public class MyClient {
             RechercheChambreHotelImplService serviceRechercheChambre = new RechercheChambreHotelImplService(urlRechercheChambre);
             RechercheChambreHotel proxyRechercheChambre = serviceRechercheChambre.getRechercheChambreHotelImplPort();
 
-            List<Chambre> chambresTrouvees = proxyRechercheChambre.rechercherChambres(70, 100, 2);
-            System.out.println("Chambres correspondant à votre demande : \n "+chambresTrouvees);
+            List<Offre> offresTrouvees = proxyRechercheChambre.rechercherChambres(70, 100, 2);
 
-    // Traitez les chambres trouvées
-            for (Chambre chambre : chambresTrouvees) {
-                System.out.println("\nNuméro de chambre : " + chambre.getNumChambre());
-                System.out.println("Prix : " + chambre.getPrix()+"\n");
+            System.out.println("Offres correspondant à votre demande :");
+            for (ConsomationRechercheChambre.Offre offre : offresTrouvees) {
+                System.out.println("\nID de l'offre : " + offre.getIdOffre());
+                System.out.println("Prix : " + offre.getPrix());
+                System.out.println("Nombre de lits : " + offre.getNombreLits() + "\n");
             }
 
 

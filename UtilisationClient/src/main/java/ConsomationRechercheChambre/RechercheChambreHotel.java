@@ -31,14 +31,14 @@ public interface RechercheChambreHotel {
      * @param nbLit
      * @param prixMaximum
      * @return
-     *     returns java.util.List<ConsomationRechercheChambre.Chambre>
+     *     returns java.util.List<ConsomationRechercheChambre.Offre>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "rechercherChambres", targetNamespace = "http://Service/", className = "ConsomationRechercheChambre.RechercherChambres")
     @ResponseWrapper(localName = "rechercherChambresResponse", targetNamespace = "http://Service/", className = "ConsomationRechercheChambre.RechercherChambresResponse")
     @Action(input = "http://Service/RechercheChambreHotel/rechercherChambresRequest", output = "http://Service/RechercheChambreHotel/rechercherChambresResponse")
-    public List<Chambre> rechercherChambres(
+    public List<Offre> rechercherChambres(
         @WebParam(name = "prixMinimum", targetNamespace = "")
         float prixMinimum,
         @WebParam(name = "prixMaximum", targetNamespace = "")

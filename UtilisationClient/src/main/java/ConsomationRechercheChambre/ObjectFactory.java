@@ -51,11 +51,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Chambre }
+     * Create an instance of {@link Offre }
      * 
      */
-    public Chambre createChambre() {
-        return new Chambre();
+    public Offre createOffre() {
+        return new Offre();
     }
 
     /**
